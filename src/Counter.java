@@ -1,7 +1,17 @@
+import java.util.Scanner;
+
 public class Counter {
     public static void main(String[] args) {
         try {
-            count(1, 500);
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Insira dois números e a aplicação imprimirá a diferença entre eles, linha a linha.");
+            System.out.print("Insira o primeiro número: ");
+            int num1 = Integer.parseInt(scanner.nextLine());
+            System.out.print("Insira o segundo número: ");
+            int num2 = Integer.parseInt(scanner.nextLine());
+
+            count(num1, num2);
+
         } catch (InvalidParametersException e) {
             System.out.println(e.getMessage());
         }
@@ -12,9 +22,10 @@ public class Counter {
         if (num1 > num2) throw new InvalidParametersException("O primeiro argumento deve ser maior que o segundo");
 
         int counter = num2 - num1;
+        System.out.printf("Vou imprimir todos os números de 1 até %d.%n", counter);
 
         for (int i = 1; i <= counter; i++) {
-            System.out.println(i);
+            System.out.printf("Imprimindo o número %d%n", i);
         }
     }
 }
